@@ -19,5 +19,21 @@ public static void main(String args[]){
 
 	System.out.println("Program finished using Jenkins");
 
+}
+
+public Object getUniqueId() {
+	// TODO Auto-generated method stub
+	System.out.println("Hey there!! I am from Mockito Framework");
+	return null;
+}
+
+public void testing(int i) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void someMethod(String string) {
+	// TODO Auto-generated method stub
+	
 }	
 }
