@@ -1,16 +1,8 @@
-import static org.junit.Assert.*;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.Mockito;
 
-import static org.mockito.Mockito.*;
-
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 
 public class MyClassTest1 {
@@ -68,14 +60,14 @@ public class MyClassTest1 {
 			tester.div(1000, 0);
 		}
 		
-		//Mockito
+	/*	//Mockito
 		@Test
 		public void test1Mockito()  {
 		        //  create mock
-		        MyClass test = mock(MyClass.class);
+		        MyClass test = Mockito.mock(MyClass.class);
 
 		        // define return value for method getUniqueId()
-		        when(test.getUniqueId()).thenReturn(44);
+		        Mockito.when(test.getUniqueId()).thenReturn(44);
 
 		        // use mock in test....
 		        assertEquals(test.getUniqueId(), 44);
@@ -83,8 +75,8 @@ public class MyClassTest1 {
 		// demonstrates the return of multiple values
 		@Test
 		public void testMoreThanOneReturnValueMockito()  {
-		        Iterator<String> i= mock(Iterator.class);
-		        when(i.next()).thenReturn("Mockito").thenReturn("rocks");
+		        Iterator<String> i= Mockito.mock(Iterator.class);
+		        Mockito.when(i.next()).thenReturn("Mockito").thenReturn("rocks");
 		        String result= i.next()+" "+i.next();
 		        //assert
 		        assertEquals("Mockito rocks", result);
@@ -93,9 +85,9 @@ public class MyClassTest1 {
 		// this test demonstrates how to return values based on the input
 		@Test
 		public void testReturnValueDependentOnMethodParameter()  {
-		        Comparable<String> c= mock(Comparable.class);
-		        when(c.compareTo("Mockito")).thenReturn(1);
-		        when(c.compareTo("Eclipse")).thenReturn(2);
+		        Comparable<String> c= Mockito.mock(Comparable.class);
+		        Mockito.when(c.compareTo("Mockito")).thenReturn(1);
+		        Mockito.when(c.compareTo("Eclipse")).thenReturn(2);
 		        //assert
 		        assertEquals(1, c.compareTo("Mockito"));
 		}
@@ -104,8 +96,8 @@ public class MyClassTest1 {
 
 		@Test
 		public void testReturnValueInDependentOnMethodParameter()  {
-		        Comparable<Integer> c= mock(Comparable.class);
-		        when(c.compareTo(anyInt())).thenReturn(-1);
+		        Comparable<Integer> c= Mockito.mock(Comparable.class);
+		        Mockito.when(c.compareTo(Mockito.anyInt())).thenReturn(-1);
 		        //assert
 		        assertEquals(-1, c.compareTo(9));
 		}
@@ -114,8 +106,8 @@ public class MyClassTest1 {
 
 		@Test
 		public void testReturnValueInDependentOnMethodParameter2()  {
-		        Comparable<MyClass> c= mock(Comparable.class);
-		        when(c.compareTo(isA(MyClass.class))).thenReturn(0);
+		        Comparable<MyClass> c= Mockito.mock(Comparable.class);
+		        Mockito.when(c.compareTo(Mockito.isA(MyClass.class))).thenReturn(0);
 		        //assert
 		        assertEquals(0, c.compareTo(new MyClass()));
 		}
@@ -124,7 +116,7 @@ public class MyClassTest1 {
 		public void testVerify()  {
 		    // create and configure mock
 		    MyClass test = Mockito.mock(MyClass.class);
-		    when(test.getUniqueId()).thenReturn(44);
+		    Mockito.when(test.getUniqueId()).thenReturn(44);
 
 
 		    // call method testing on the mock with parameter 12
@@ -134,19 +126,19 @@ public class MyClassTest1 {
 
 
 		    // now check if method testing was called with the parameter 12
-		    verify(test).testing(ArgumentMatchers.eq(12));
+		    Mockito.verify(test).testing(ArgumentMatchers.eq(12));
 
 		    // was the method called twice?
-		    verify(test, times(2)).getUniqueId();
+		    Mockito.verify(test, Mockito.times(2)).getUniqueId();
 
 		    // other alternatives for verifiying the number of method calls for a method
-/*		    verify(test, never()).someMethod("never called");
+*//*		    verify(test, never()).someMethod("never called");
 		    verify(test, atLeastOnce()).someMethod("called at least once");
 		    verify(test, atLeast(2)).someMethod("called at least twice");
 		    verify(test, times(5)).someMethod("called five times");
-		    verify(test, atMost(3)).someMethod("called at most 3 times");*/
+		    verify(test, atMost(3)).someMethod("called at most 3 times");*//*
 		    // This let's you check that no other methods where called on this object.
 		    // You call it after you have verified the expected method calls.
-		    verifyNoMoreInteractions(test);
-		}
+		    Mockito.verifyNoMoreInteractions(test);
+		}*/
 }
